@@ -1,0 +1,142 @@
+/* Reset margin and padding, set base font */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Satoshi', sans-serif;
+  background-color: #fff;
+  color: #111;
+}
+
+/* Container for the entire changelog section */
+.changelog-container {
+  max-width: 700px;
+  margin: 50px auto;
+  padding: 40px;
+  border: 2px solid #111;
+  border-radius: 16px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+/* Centered main heading */
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 8px;
+}
+
+/* Subtitle under the main heading */
+.subtitle {
+  text-align: center;
+  color: #999;
+  margin-bottom: 40px;
+}
+
+/* Timeline layout container */
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  padding: 20px 0;
+}
+
+/* Timeline vertical line - responsive */
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 280px; /* Default for desktop screens */
+  bottom: 0;
+  width: 2px;
+  background-color: #000000; /* Black color for the vertical line */
+  z-index: 0;
+  transition: left 0.3s ease; /* Smooth position update on resize */
+}
+
+/* Responsive update for smaller screens */
+@media (max-width: 600px) {
+  .timeline::before {
+    left: 500px; /* Adjust line position to align with smaller dot layout */
+  }
+}
+
+
+/* Individual timeline entry horizontally centered */
+.timeline-entry {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Date label styling */
+.timeline-entry .date {
+  font-size: 0.9rem;
+  color: #999;
+  text-align: right;
+  width: 160px;
+}
+
+/* Dot that sits on the horizontal line */
+.timeline-entry .dot {
+  width: 14px;
+  height: 14px;
+  background-color: #111;
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+}
+
+/* Description text styling */
+.timeline-entry .description {
+  font-size: 1rem;
+  width: 300px;
+}
+
+/* Button at the bottom */
+.changelog-button {
+  display: block;
+  margin: 40px auto 0;
+  padding: 12px 24px;
+  background-color: #050321;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for the button */
+.changelog-button:hover {
+  background-color: #333;
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 600px) {
+  .changelog-container {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .timeline-entry {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .timeline-entry .date,
+  .timeline-entry .description {
+    width: auto;
+  }
+
+  .timeline::before {
+    display: none;
+  }
+}
